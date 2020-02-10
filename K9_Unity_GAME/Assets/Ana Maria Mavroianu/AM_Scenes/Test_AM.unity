@@ -3869,7 +3869,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602575335}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 1.5599976, z: -3.6000001}
+  m_LocalPosition: {x: -0.9000006, y: 1.5599976, z: -4.2000003}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1755186654}
@@ -4007,9 +4007,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1755186654}
+  - component: {fileID: 1755186651}
   - component: {fileID: 1755186653}
   - component: {fileID: 1755186652}
-  - component: {fileID: 1755186651}
   - component: {fileID: 1755186650}
   - component: {fileID: 1755186649}
   - component: {fileID: 1755186648}
@@ -4078,38 +4078,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1755186647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 809060cdb91154945b9944b7b5288e56, type: 3}
+  m_Script: {fileID: 11500000, guid: de53cd34ee131604c9051567247ec696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats:
-    moveSpeed: 26
-    runMultiplier: 1.14
-    runKey: 304
-    jumpPower: 0
-    jumpKey: 32
-    groundDistance: 1.1
-  infoBools:
-    player_mood: 0
-    isIdle: 0
-    isJumping: 0
-    isWalking: 0
-    isRunning: 0
-    isDead: 0
-  animate:
-    parameterName: 
-    number_anim_idle: 0
-    number_anim_walk: 0
-    number_anim_run: 0
-    number_anim_jump: 0
-    number_anim_dead: 0
-  cameraWorks:
-    min_X: -60
-    max_X: 60
-    min_Y: -360
-    max_Y: 360
-    sensitivity_X: 2
-    sensitivity_Y: 2
-    cam: {fileID: 0}
+  moveSpeed: 153
+  runMultiplier: 1.64
+  runKey: 304
+  jumpPower: 199
+  jumpKey: 32
+  groundDistance: 1.1
+  player_mood: 0
+  isIdle: 0
+  isJumping: 0
+  isWalking: 0
+  isRunning: 0
+  isDead: 0
+  playerBody: {fileID: 1755186647}
 --- !u!23 &1755186652
 MeshRenderer:
   m_ObjectHideFlags: 0

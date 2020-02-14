@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2628932569966392428}
   - component: {fileID: 303087372410505784}
   - component: {fileID: 4436516778545934002}
+  - component: {fileID: 4999607840539629944}
   m_Layer: 0
   m_Name: Foliage_3
   m_TagString: Untagged
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &4999607840539629944
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618268407981836381}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5802437
+  m_Center: {x: -0.024909884, y: 0, z: 0.018170986}

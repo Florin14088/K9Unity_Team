@@ -127,6 +127,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 143938833}
     m_Modifications:
+    - target: {fileID: 2655700350196007957, guid: 69a8608cad8855d429add2d55f8b03fb,
+        type: 3}
+      propertyPath: m_Name
+      value: Tree_Whole_Bushes02
+      objectReference: {fileID: 0}
     - target: {fileID: 1333532494595012102, guid: 69a8608cad8855d429add2d55f8b03fb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -181,11 +186,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2655700350196007957, guid: 69a8608cad8855d429add2d55f8b03fb,
-        type: 3}
-      propertyPath: m_Name
-      value: Tree_Whole_Bushes02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a8608cad8855d429add2d55f8b03fb, type: 3}
@@ -509,6 +509,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 143938833}
     m_Modifications:
+    - target: {fileID: 2687308384523463186, guid: 9bd0aee1c344f2d4192997026f866ab1,
+        type: 3}
+      propertyPath: m_Name
+      value: Tree_Whole01
+      objectReference: {fileID: 0}
     - target: {fileID: 1373709367373060097, guid: 9bd0aee1c344f2d4192997026f866ab1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -563,11 +568,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2687308384523463186, guid: 9bd0aee1c344f2d4192997026f866ab1,
-        type: 3}
-      propertyPath: m_Name
-      value: Tree_Whole01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd0aee1c344f2d4192997026f866ab1, type: 3}
@@ -659,6 +659,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 143938833}
     m_Modifications:
+    - target: {fileID: 5729600813255758023, guid: 0d6b43ec9249da84083d46885d6fc647,
+        type: 3}
+      propertyPath: m_Name
+      value: Tree_Whole_Bushes01
+      objectReference: {fileID: 0}
     - target: {fileID: 8780040486735897300, guid: 0d6b43ec9249da84083d46885d6fc647,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -713,11 +718,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729600813255758023, guid: 0d6b43ec9249da84083d46885d6fc647,
-        type: 3}
-      propertyPath: m_Name
-      value: Tree_Whole_Bushes01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d6b43ec9249da84083d46885d6fc647, type: 3}
@@ -975,6 +975,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 143938833}
     m_Modifications:
+    - target: {fileID: 7879489624221376731, guid: 82dd76dc8be580348a1f723ebc8ebf8a,
+        type: 3}
+      propertyPath: m_Name
+      value: Tree_Whole_Bushes04
+      objectReference: {fileID: 0}
     - target: {fileID: 6558028068072559304, guid: 82dd76dc8be580348a1f723ebc8ebf8a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1029,11 +1034,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7879489624221376731, guid: 82dd76dc8be580348a1f723ebc8ebf8a,
-        type: 3}
-      propertyPath: m_Name
-      value: Tree_Whole_Bushes04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82dd76dc8be580348a1f723ebc8ebf8a, type: 3}
@@ -1315,6 +1315,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 143938833}
     m_Modifications:
+    - target: {fileID: 6322439724828840320, guid: 3e9391946d3cc7c40996d209457c51ed,
+        type: 3}
+      propertyPath: m_Name
+      value: Tree_Whole05
+      objectReference: {fileID: 0}
     - target: {fileID: 7054476183595590547, guid: 3e9391946d3cc7c40996d209457c51ed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1370,11 +1375,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6322439724828840320, guid: 3e9391946d3cc7c40996d209457c51ed,
-        type: 3}
-      propertyPath: m_Name
-      value: Tree_Whole05
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e9391946d3cc7c40996d209457c51ed, type: 3}
 --- !u!4 &1750485177 stripped
@@ -1390,6 +1390,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 143938833}
     m_Modifications:
+    - target: {fileID: 2355946974635882097, guid: d23e2a35467891f4686706393a795c05,
+        type: 3}
+      propertyPath: m_Name
+      value: Tree_Whole03
+      objectReference: {fileID: 0}
     - target: {fileID: 1650948124296152162, guid: d23e2a35467891f4686706393a795c05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1445,11 +1450,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2355946974635882097, guid: d23e2a35467891f4686706393a795c05,
-        type: 3}
-      propertyPath: m_Name
-      value: Tree_Whole03
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d23e2a35467891f4686706393a795c05, type: 3}
 --- !u!4 &1891761952 stripped
@@ -1465,6 +1465,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 143938833}
     m_Modifications:
+    - target: {fileID: 5843819106462616212, guid: 1fa7a4d8181671b41a2c666958d0e367,
+        type: 3}
+      propertyPath: m_Name
+      value: Tree_Whole_Bushes03
+      objectReference: {fileID: 0}
     - target: {fileID: 7440566000771053703, guid: 1fa7a4d8181671b41a2c666958d0e367,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1520,11 +1525,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5843819106462616212, guid: 1fa7a4d8181671b41a2c666958d0e367,
-        type: 3}
-      propertyPath: m_Name
-      value: Tree_Whole_Bushes03
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fa7a4d8181671b41a2c666958d0e367, type: 3}
 --- !u!4 &1970511892 stripped
@@ -1533,6 +1533,81 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1970511891}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1979796834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1979796837}
+  - component: {fileID: 1979796836}
+  - component: {fileID: 1979796835}
+  m_Layer: 0
+  m_Name: Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!154 &1979796835
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979796834}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: c6ecdcd2f40496342b973a7964ca8990, type: 2}
+  m_EnableTreeColliders: 1
+--- !u!218 &1979796836
+Terrain:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979796834}
+  m_Enabled: 1
+  serializedVersion: 5
+  m_TerrainData: {fileID: 15600000, guid: c6ecdcd2f40496342b973a7964ca8990, type: 2}
+  m_TreeDistance: 5000
+  m_TreeBillboardDistance: 50
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_ShadowCastingMode: 2
+  m_DrawHeightmap: 1
+  m_DrawInstanced: 0
+  m_DrawTreesAndFoliage: 1
+  m_ReflectionProbeUsage: 1
+  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_BakeLightProbesForTrees: 1
+  m_PreserveTreePrototypeLayers: 0
+  m_DeringLightProbesForTrees: 1
+  m_ScaleInLightmap: 0.0256
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
+  m_AllowAutoConnect: 1
+--- !u!4 &1979796837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979796834}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -91.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1544685347170799457
 PrefabInstance:
   m_ObjectHideFlags: 0

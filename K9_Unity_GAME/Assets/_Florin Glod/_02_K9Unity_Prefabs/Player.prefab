@@ -201,10 +201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de53cd34ee131604c9051567247ec696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 150
-  runMultiplier: 1.5
+  moveSpeed: 200
+  runMultiplier: 2
   runKey: 304
-  jumpPower: 100
+  jumpPower: 150
   jumpKey: 32
   groundDistance: 1.1
   player_mood: 0

@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Florin Glod/____Game Scenes/Level_EndCredits.unity
+    guid: 5ada929e3a3b1004aacb526cc42b7dc7
+  - enabled: 1
+    path: Assets/_Florin Glod/____Game Scenes/Level_FoxForest.unity
+    guid: aece0d1cf40bec9418015e9097b43333
+  - enabled: 1
+    path: Assets/_Florin Glod/____Game Scenes/Level_MainMenu.unity
+    guid: 01c450f6141002743b5e62174b9410ea
   m_configObjects: {}

@@ -15,30 +15,23 @@ public class F_Player_Controller : MonoBehaviour
     #region Public Variables
     [Range(0, 200)]
     public float moveSpeed = 0;
-
+    public float rot = 0f; //body rotation
+    public float rotSpeed = 5f;
     [Space]
-
-    [Range(1, 3)]
-    public float runMultiplier = 1;
+    [Range(1, 3)] public float runMultiplier = 1;
     public KeyCode runKey = KeyCode.LeftShift;
-
     [Space]
-
-    [Range(0, 350)]
-    public float jumpPower = 0;
+    [Range(0, 350)] public float jumpPower = 0;
     public KeyCode jumpKey = KeyCode.Space;
     public float groundDistance = 1.1f; //used by raycast that is starting from player and going down.
 
-    [HideInInspector] public enum PlayerMood { idle, walking, running, jumping, dead };
+    [HideInInspector] public enum PlayerMood { idle, walking, running, jumping};
     public PlayerMood player_mood;
     [Space]
     public bool isIdle; //true if isWalking, isJumping and isDead are false
     public bool isJumping; //true if jump key is pressed. this bool is always equal with Airborne() function. Function Airborne() controls this bool by returning true or false
     public bool isWalking; //true if horizontal or vertical axis are not equal with Vector3.zero. Function Movement() controls this bool
     public bool isRunning; //true if run key is pressed while isWalking = true. Function CanRun() controls this bool
-    public bool isDead; //true if player have no health left
-    [Space]
-    public GameObject playerBody;
 
     #endregion
 
@@ -83,7 +76,7 @@ public class F_Player_Controller : MonoBehaviour
     #region Own Functions
 
     private void Movement()
-    {
+    {       
         if (Input.GetKey(jumpKey) && isJumping == false)// if jump key is pressed and is not airborne
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpPower * Time.deltaTime, rb.velocity.z);
@@ -101,9 +94,7 @@ public class F_Player_Controller : MonoBehaviour
             Vector3 yVelFixx = new Vector3(0, rb.velocity.y, 0); //temp Vector3 variable with x and z 0 and y controlled by rigidbody
             rb.velocity = GetDirection() * SpeedDecision() * Time.deltaTime;
             rb.velocity += yVelFixx; //add the temp Vector3 to the rb.velocity to allow rigidbody to control y
-
-            playerBody.transform.Rotate(0, horizontal_Movement * 5, 0);
-
+                        
         }
 
 
@@ -124,12 +115,48 @@ public class F_Player_Controller : MonoBehaviour
 
     private Vector3 GetDirection()// function that simply returns the normalized Vector3 that is made from the sum of horizontal and vertical movements
     {
-        horizontal_Movement = Input.GetAxisRaw("Horizontal"); //getting the horizontal movement
-        vertical_Movement = Input.GetAxisRaw("Vertical"); //getting the vertical movement
-        moveDirection = (horizontal_Movement * transform.right + vertical_Movement * transform.forward).normalized; //assembly the 2 movement variables together in this Vector3 and normalize it
+        // horizontal_Movement = Input.GetAxisRaw("Horizontal"); //getting the horizontal movement
+        // vertical_Movement = Input.GetAxisRaw("Vertical"); //getting the vertical movement
+        // moveDirection = (horizontal_Movement * transform.right + vertical_Movement * transform.forward).normalized; //assembly the 2 movement variables together in this Vector3 and normalize it
+
+        if (Input.GetKey(KeyCode.W)) //                 moving FORWARD
+        {
+            moveDirection = new Vector3(0, 0, 1);
+            moveDirection = transform.TransformDirection(moveDirection);
+
+        }//Forward Key press
+
+        if (Input.GetKey(KeyCode.S)) //moving backward
+        {
+            moveDirection = new Vector3(0, 0, -1);
+            moveDirection = transform.TransformDirection(moveDirection);
+
+        }//Backward Key press
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
+            transform.eulerAngles = new Vector3(0, rot, 0);
+            if (rot >= 360) rot = 0;
+            if (rot <= -360) rot = 0;
+        }//Turning Left
 
 
-        return moveDirection;
+        if (Input.GetKey(KeyCode.D))
+        {
+            rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
+            transform.eulerAngles = new Vector3(0, rot, 0);
+            if (rot >= 360) rot = 0;
+            if (rot <= -360) rot = 0;
+        }//Turning Right
+
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
+        {
+            moveDirection = new Vector3(0, 0, 0);
+
+        }//Stop Movement
+
+            return moveDirection;
 
     }//GetDirection
 
@@ -157,7 +184,7 @@ public class F_Player_Controller : MonoBehaviour
 
     }//CanRun
 
-    private float SpeedDecision()// return the speed to be used to move according to isRunning bool
+    private float SpeedDecision()// return the moveSpeed to be used to move according to isRunning bool
     {
         if (isRunning) return moveSpeed * runMultiplier;
         else return moveSpeed * (runMultiplier / runMultiplier);

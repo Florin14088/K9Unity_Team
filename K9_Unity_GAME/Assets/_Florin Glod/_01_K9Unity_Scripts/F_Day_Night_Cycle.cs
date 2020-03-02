@@ -55,7 +55,9 @@ public class F_Day_Night_Cycle : MonoBehaviour
         master.allStars = master.SkyStars.GetComponentsInChildren<Transform>();
 
         sunInitialIntensity = master.sun.intensity;
-        Make_Day();
+
+        ForceCertainMoment();
+
         ChangeDayStage();
 
     }//Start
@@ -72,6 +74,7 @@ public class F_Day_Night_Cycle : MonoBehaviour
 
     void UpdateSun()
     {
+
         day.current_day_moment += (Time.deltaTime / day.seconds_for_one_day) * day.timeMultiplier;
         master.sun.transform.localRotation = Quaternion.Euler((day.current_day_moment * 360f) - 90, 170, 0);
 
@@ -111,6 +114,18 @@ public class F_Day_Night_Cycle : MonoBehaviour
         master.PlayerLight.intensity = 1 - master.sun.intensity;
 
     }//UpdateSun
+
+
+    void ForceCertainMoment()
+    {
+        if (master.pickedMoment == Master.DayMoments_Teleport.dawn) Make_Dawn();
+        if (master.pickedMoment == Master.DayMoments_Teleport.day) Make_Day();
+        if (master.pickedMoment == Master.DayMoments_Teleport.dusk) Make_Dusk();
+        if (master.pickedMoment == Master.DayMoments_Teleport.midnight) Make_Midnight();
+        if (master.pickedMoment == Master.DayMoments_Teleport.morning) Make_Morning();
+        if (master.pickedMoment == Master.DayMoments_Teleport.night) Make_Night();
+
+    }//ForceCertainMoment
 
 
     #region Button management
@@ -188,68 +203,3 @@ public class F_Day_Night_Cycle : MonoBehaviour
 
 
 }//END
-
-
-//#region using Owner.Florin Glod
-////Script created by Florin Glod on January 31, 2020;
-////This script cannot be used by any person, entity, or organization without written permission from the creator.
-////All rights reserved.
-//#endregion
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-
-//public class F_Day_Night_Cycle : MonoBehaviour
-//{
-//    public Light sun;
-//    public Light PlayerLight;
-//    [Space]
-//    public float seconds_for_one_day = 120f;
-//    [Range(0, 1)]
-//    public float current_day_moment = 0;
-//    [HideInInspector]
-//    public float timeMultiplier = 1f;
-
-//    float sunInitialIntensity;
-
-//    void Start()
-//    {
-//        sunInitialIntensity = sun.intensity;
-//    }
-
-//    void Update()
-//    {
-//        UpdateSun();
-
-//        current_day_moment += (Time.deltaTime / seconds_for_one_day) * timeMultiplier;
-
-//        if (current_day_moment >= 1)
-//        {
-//            current_day_moment = 0;
-//        }
-//    }
-
-//    void UpdateSun()
-//    {
-//        sun.transform.localRotation = Quaternion.Euler((current_day_moment * 360f) - 90, 170, 0);
-
-//        float intensityMultiplier = 1;
-//        if (current_day_moment <= 0.23f || current_day_moment >= 0.75f)
-//        {
-//            intensityMultiplier = 0;
-//        }
-//        else if (current_day_moment <= 0.25f)
-//        {
-//            intensityMultiplier = Mathf.Clamp01((current_day_moment - 0.23f) * (1 / 0.02f));
-//        }
-//        else if (current_day_moment >= 0.73f)
-//        {
-//            intensityMultiplier = Mathf.Clamp01(1 - ((current_day_moment - 0.73f) * (1 / 0.02f)));
-//        }
-
-//        sun.intensity = sunInitialIntensity * intensityMultiplier;
-//        PlayerLight.intensity = 1 - sun.intensity;
-
-//    }
-
-//}//END

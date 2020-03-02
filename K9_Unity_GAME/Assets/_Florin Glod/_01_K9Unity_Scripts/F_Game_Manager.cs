@@ -1,35 +1,106 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class F_Game_Manager : MonoBehaviour
 {
-    public GameObject InfoPanel;
-    public string tutorial_sceneName;
-    public string level_sceneName;
-    public string credits_sceneName;
-    public string mainMenu_sceneName;
+    #region Own Classes
+    [System.Serializable] public class byFlorin__forScenes
+    {
+        public GameObject InfoPanel;
+        [Space]
+        public string tutorial_sceneName;
+        public string level_sceneName;
+        public string credits_sceneName;
+        public string mainMenu_sceneName;
+    }
+
+    [System.Serializable] public class byFlorin__Pickup
+    {
+        public int collectedAmount = 0;
+        [Space]
+        public bool b_allowPanelShowing = false;
+        public GameObject ui_panel_pickup_notice;
+        [Range(1, 4)] public float time_alive_panel = 3;        
+    }
+
+    [System.Serializable] public class byFlorin__UI
+    {
+        public Text collected_txt;
+    }
+    #endregion
 
 
+    #region Public
+    public byFlorin__forScenes florin_scenes = new byFlorin__forScenes();
+    [Space]
+    public byFlorin__Pickup florin_pickup = new byFlorin__Pickup();
+    [Space]
+    public byFlorin__UI florin_UI = new byFlorin__UI();
+    #endregion
 
+
+    #region Private
+    private float _tempAvailableTimer = 0;
+    private float cooldown = 1;
+    private float nextCooldown = 0;
+    #endregion
+
+
+    #region Pre Defined Functions
     void Start()
     {
 
-    }
+    }//Start
 
 
     void Update()
     {
-        
+        ScoreIsChanged();
 
-    }
+    }//Update
+    #endregion
+
+
+    #region Own Functions
+
+    private void ScoreIsChanged()
+    {
+        if (florin_pickup.b_allowPanelShowing)
+        {
+            florin_pickup.b_allowPanelShowing = false;
+            _tempAvailableTimer += florin_pickup.time_alive_panel;
+        }
+
+    }//ScoreIsChanged
+
+    private void GoingToDisablePanel()
+    {
+        if(_tempAvailableTimer > 0)
+        {
+            if(Time.time > nextCooldown)
+            {
+                nextCooldown = Time.time + cooldown;
+                _tempAvailableTimer--;
+            }
+        }
+
+        if(_tempAvailableTimer <= 0 && florin_pickup.ui_panel_pickup_notice.activeSelf)
+        {
+            florin_pickup.ui_panel_pickup_notice.SetActive(false);
+        }
+
+    }//GoingToDisablePanel
+
+    #endregion
 
 
     #region Button
     public void ButtonCall_Info()
     {
-        InfoPanel.SetActive(true);
+        florin_scenes.InfoPanel.SetActive(true);
         StopTime();
 
     }//ButtonCall_Info
@@ -37,12 +108,14 @@ public class F_Game_Manager : MonoBehaviour
 
     public void StopTime()
     {
+        //Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
     }
 
 
     public void StartTime()
     {
+        //Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
     }
 
@@ -55,25 +128,25 @@ public class F_Game_Manager : MonoBehaviour
 
     public void ButtonCall_Load_MainMenu()
     {
-        SceneManager.LoadScene(mainMenu_sceneName);
+        SceneManager.LoadScene(florin_scenes.mainMenu_sceneName);
     }
 
 
     public void ButtonCall_Load_Credits()
     {
-        SceneManager.LoadScene(credits_sceneName);
+        SceneManager.LoadScene(florin_scenes.credits_sceneName);
     }
 
 
     public void ButtonCall_Load_Tutorial()
     {
-        SceneManager.LoadScene(tutorial_sceneName);
+        SceneManager.LoadScene(florin_scenes.tutorial_sceneName);
     }
 
 
     public void ButtonCall_Load_Level()
     {
-        SceneManager.LoadScene(level_sceneName);
+        SceneManager.LoadScene(florin_scenes.level_sceneName);
     }
 
 

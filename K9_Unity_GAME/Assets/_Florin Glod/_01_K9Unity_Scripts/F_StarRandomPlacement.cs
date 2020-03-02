@@ -34,7 +34,7 @@ public class F_StarRandomPlacement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = transform.forward * 900;
+        rb.velocity = transform.forward * 400;
     }
 
 
@@ -45,7 +45,7 @@ public class F_StarRandomPlacement : MonoBehaviour
             meshRend.enabled = true;
             Destroy(rb);
             Destroy(GetComponent<Collider>());
-            Destroy(GameObject.Find("Sky Globe"));
+            //Destroy(GameObject.Find("Sky Globe"));
             Destroy(gameObject.GetComponent<F_StarRandomPlacement>());
         }
     }

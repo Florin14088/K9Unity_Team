@@ -35,7 +35,8 @@ public class F_CameraController : MonoBehaviour
 
     void Start()
     {
-       Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
 
         // find the camera in the object hierarchy
         //m_Cam = GetComponentInChildren<Camera>().transform;

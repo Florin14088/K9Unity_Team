@@ -65,6 +65,7 @@ public class F_Game_Manager : MonoBehaviour
         }
 
         ScoreIsChanged();
+        GoingToDisablePanel();
 
     }//Update
     #endregion
@@ -79,6 +80,7 @@ public class F_Game_Manager : MonoBehaviour
             florin_pickup.b_allowPanelShowing = false;
             florin_UI.collected_txt.text = florin_pickup.collectedAmount.ToString("f0");
             _tempAvailableTimer += florin_pickup.time_alive_panel;
+            florin_pickup.ui_panel_pickup_notice.SetActive(true);
         }
 
     }//ScoreIsChanged

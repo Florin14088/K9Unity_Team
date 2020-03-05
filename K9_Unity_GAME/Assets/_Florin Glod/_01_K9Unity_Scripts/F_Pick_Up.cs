@@ -8,11 +8,14 @@ public class F_Pick_Up : MonoBehaviour
     [System.Serializable] public class MadeByFlorin
     {
         public string interestTag;
+        public KeyCode keyCollecting = KeyCode.C;
     }
 
     [System.Serializable] public class AlsoMadeByFlorin
     {
         public GameObject player_itself;
+        public GameObject willBeDestroyed;
+        public GameObject PanelUI_InfoCanPick;
     }
     #endregion
 
@@ -23,12 +26,14 @@ public class F_Pick_Up : MonoBehaviour
 
     #region Private    
     private F_Game_Manager _script_GM;
+    private bool b_inRadius = false;
     #endregion
 
 
 
     void Start()
     {
+        also_florin.PanelUI_InfoCanPick.SetActive(false);
         _script_GM = FindObjectOfType<F_Game_Manager>();
 
         also_florin.player_itself = GameObject.FindGameObjectWithTag(florin.interestTag);
@@ -36,13 +41,41 @@ public class F_Pick_Up : MonoBehaviour
     }//Start
 
 
+    private void Update()
+    {
+        if(b_inRadius && Input.GetKeyDown(florin.keyCollecting))
+        {
+            TriggerBehaviour();
+        }
+
+    }//Update
+
+
+    private void TriggerBehaviour()
+    {
+        _script_GM.florin_pickup.collectedAmount++;
+        _script_GM.florin_pickup.b_allowPanelShowing = true;
+        also_florin.PanelUI_InfoCanPick.SetActive(false);
+        Destroy(also_florin.willBeDestroyed);
+
+    }//TriggerBehaviour
+
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == florin.interestTag)
+        if(other.gameObject.transform.root.tag == florin.interestTag)
         {
-            _script_GM.florin_pickup.collectedAmount++;
-            _script_GM.florin_pickup.b_allowPanelShowing = true;
-            Destroy(gameObject);
+            b_inRadius = true;
+            also_florin.PanelUI_InfoCanPick.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.transform.root.tag == florin.interestTag)
+        {
+            b_inRadius = false;
+            also_florin.PanelUI_InfoCanPick.SetActive(false);
         }
     }
 

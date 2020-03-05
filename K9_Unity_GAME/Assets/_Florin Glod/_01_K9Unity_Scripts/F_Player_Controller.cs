@@ -104,8 +104,14 @@ public class F_Player_Controller : MonoBehaviour
             anim.SetInteger("Ana", 1);
         }
 
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)
+            || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        {
+            anim.SetInteger("Ana", 1);
+        }
 
-        if (GetDirection() == Vector3.zero && !Input.GetKey(jumpKey))// if no input is received
+        if (GetDirection() == Vector3.zero && !Input.GetKey(jumpKey) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)
+            && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))// if no input is received
         {
             isWalking = false;// no input, so it's no longer walking
 

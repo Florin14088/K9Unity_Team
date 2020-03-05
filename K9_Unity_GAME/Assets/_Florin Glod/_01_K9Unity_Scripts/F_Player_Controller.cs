@@ -38,6 +38,7 @@ public class F_Player_Controller : MonoBehaviour
 
     #region Private Variables
     private Rigidbody rb;
+    private Animator anim;
     private float horizontal_Movement = 0;
     private float vertical_Movement = 0;
     private Vector3 moveDirection;
@@ -52,6 +53,7 @@ public class F_Player_Controller : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
         
 
     }//Awake
@@ -77,33 +79,40 @@ public class F_Player_Controller : MonoBehaviour
 
     private void Movement()
     {       
-        if (Input.GetKey(jumpKey) && isJumping == false)// if jump key is pressed and is not airborne
+        if (Input.GetKeyDown(jumpKey) && isJumping == false)// if jump key is pressed and is not airborne
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpPower * Time.deltaTime, rb.velocity.z);
         }
 
+        if (Input.GetKey(jumpKey))
+        {
+            anim.SetInteger("Ana", 2);
+        }
 
         if (Airborne() != isJumping) isJumping = Airborne();// make sure isJumping is equals with what is returned by the Airborne function
         if (CanRun() != isRunning) isRunning = CanRun();// make sure isRunning is equals with what is returned by the CanRun function
 
 
-        if (GetDirection() != Vector3.zero)// if input is received
+        if (GetDirection() != Vector3.zero && !Input.GetKey(jumpKey))// if input is received
         {
             isWalking = true;// input detected, is walking            
 
             Vector3 yVelFixx = new Vector3(0, rb.velocity.y, 0); //temp Vector3 variable with x and z 0 and y controlled by rigidbody
             rb.velocity = GetDirection() * SpeedDecision() * Time.deltaTime;
             rb.velocity += yVelFixx; //add the temp Vector3 to the rb.velocity to allow rigidbody to control y
-                        
+
+            anim.SetInteger("Ana", 1);
         }
 
 
-        if (GetDirection() == Vector3.zero)// if no input is received
+        if (GetDirection() == Vector3.zero && !Input.GetKey(jumpKey))// if no input is received
         {
             isWalking = false;// no input, so it's no longer walking
 
             if (isJumping == false) rb.velocity = new Vector3(0 * Time.fixedDeltaTime, rb.velocity.y, 0 * Time.fixedDeltaTime); //if not airborne, let rigidbody control Y axis and set X and Z to 0
             else rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z);// if airborne, let rigidbody control everything
+
+            anim.SetInteger("Ana", 0);
         }
 
     }//Movement

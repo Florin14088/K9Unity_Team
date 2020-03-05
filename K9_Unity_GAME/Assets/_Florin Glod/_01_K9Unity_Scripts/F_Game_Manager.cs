@@ -9,8 +9,6 @@ public class F_Game_Manager : MonoBehaviour
     #region Own Classes
     [System.Serializable] public class byFlorin__forScenes
     {
-        public GameObject InfoPanel;
-        [Space]
         public string tutorial_sceneName;
         public string level_sceneName;
         public string credits_sceneName;
@@ -29,6 +27,8 @@ public class F_Game_Manager : MonoBehaviour
     [System.Serializable] public class byFlorin__UI
     {
         public Text collected_txt;
+        [Space]
+        public Button enter_menuButton;
     }
     #endregion
 
@@ -52,12 +52,18 @@ public class F_Game_Manager : MonoBehaviour
     #region Pre Defined Functions
     void Start()
     {
+        if(florin_UI.collected_txt) florin_UI.collected_txt.text = "0";
 
     }//Start
 
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if(florin_UI.enter_menuButton) florin_UI.enter_menuButton.onClick.Invoke();
+        }
+
         ScoreIsChanged();
 
     }//Update
@@ -71,6 +77,7 @@ public class F_Game_Manager : MonoBehaviour
         if (florin_pickup.b_allowPanelShowing)
         {
             florin_pickup.b_allowPanelShowing = false;
+            florin_UI.collected_txt.text = florin_pickup.collectedAmount.ToString("f0");
             _tempAvailableTimer += florin_pickup.time_alive_panel;
         }
 
@@ -98,24 +105,19 @@ public class F_Game_Manager : MonoBehaviour
 
 
     #region Button
-    public void ButtonCall_Info()
-    {
-        florin_scenes.InfoPanel.SetActive(true);
-        StopTime();
-
-    }//ButtonCall_Info
-
-
+    
     public void StopTime()
     {
-        //Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 0;
     }
 
 
     public void StartTime()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Time.timeScale = 1;
     }
 

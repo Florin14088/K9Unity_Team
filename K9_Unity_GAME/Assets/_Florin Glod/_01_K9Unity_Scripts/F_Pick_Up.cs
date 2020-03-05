@@ -7,7 +7,7 @@ public class F_Pick_Up : MonoBehaviour
     #region Own classes
     [System.Serializable] public class MadeByFlorin
     {
-        public string[] interestTags;
+        public string interestTag;
     }
 
     [System.Serializable] public class AlsoMadeByFlorin
@@ -31,14 +31,14 @@ public class F_Pick_Up : MonoBehaviour
     {
         _script_GM = FindObjectOfType<F_Game_Manager>();
 
-        also_florin.player_itself = GameObject.FindGameObjectWithTag("Player");
+        also_florin.player_itself = GameObject.FindGameObjectWithTag(florin.interestTag);
         
     }//Start
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == also_florin.player_itself)
+        if(other.gameObject.tag == florin.interestTag)
         {
             _script_GM.florin_pickup.collectedAmount++;
             _script_GM.florin_pickup.b_allowPanelShowing = true;

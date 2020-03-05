@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7937045019788204297}
   - component: {fileID: 7566758858858223092}
   - component: {fileID: 863311965445540434}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PivotDoor002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 7992512527306237560}
   - component: {fileID: 7769333991245527721}
   - component: {fileID: 2468077088407035110}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FixedWindow001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 1947161967980618985}
   - component: {fileID: 6501992330574961352}
   - component: {fileID: 9069637578588749002}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Silo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 1545108404998160750}
   - component: {fileID: 5413356581460345491}
   - component: {fileID: 607083424047393116}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FixedWindow004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 1478068746742403272}
   - component: {fileID: 8372333044641156289}
   - component: {fileID: 8784926907998587209}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FixedWindow006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 8530603541465576123}
   - component: {fileID: 4873748545696424095}
   - component: {fileID: 6925895727699170095}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FixedWindow007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 5741989626030068462}
   - component: {fileID: 3466543935681447566}
   - component: {fileID: 8566766432971798359}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FixedWindow008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 4711696510892615730}
   - component: {fileID: 7306778327598704013}
   - component: {fileID: 7020802610589378137}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SecondBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 1145958231063261987}
   - component: {fileID: 5324702577293507193}
   - component: {fileID: 5011246189158937635}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Railing002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 7895641702073923705}
   - component: {fileID: 857273899937585628}
   - component: {fileID: 2284658247872823230}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MainBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,7 +800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6933542967072755728}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -837,7 +837,7 @@ GameObject:
   - component: {fileID: 7982483046248259605}
   - component: {fileID: 1142045835821026375}
   - component: {fileID: 8532430599063111862}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PivotDoor001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 7860050479467104892}
   - component: {fileID: 8669099626247998655}
   - component: {fileID: 5285949353604187792}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FixedWindow003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -993,7 +993,7 @@ GameObject:
   - component: {fileID: 7388967046164408605}
   - component: {fileID: 582961022382274091}
   - component: {fileID: 644215647056960011}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Railing001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1071,7 +1071,7 @@ GameObject:
   - component: {fileID: 2568035770536064539}
   - component: {fileID: 4342241952835150434}
   - component: {fileID: 912526478536809861}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FixedWindow002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

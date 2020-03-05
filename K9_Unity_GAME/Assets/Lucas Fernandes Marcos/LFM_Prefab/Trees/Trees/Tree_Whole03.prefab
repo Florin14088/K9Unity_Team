@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1650948124296152162}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tree_Whole03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,6 +44,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578786631902599808, guid: 95377f251b60f7f4f804217b51b1a61e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7036607447859855558, guid: 95377f251b60f7f4f804217b51b1a61e,
         type: 3}
@@ -119,6 +124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Foliage_1_Big
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681737116795979800, guid: 7be95fbe2c749224d9577ed906a83601,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3629067579596841381, guid: 7be95fbe2c749224d9577ed906a83601,
         type: 3}
@@ -209,6 +219,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Foliage_1_Big (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681737116795979800, guid: 7be95fbe2c749224d9577ed906a83601,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3629067579596841381, guid: 7be95fbe2c749224d9577ed906a83601,
         type: 3}

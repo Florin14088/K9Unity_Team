@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1544685348107869320}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: World_End_Angle_Cluster02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1222052069433846782}
   - component: {fileID: 5253897962527065179}
   - component: {fileID: 3984354260096512994}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foliage_1_Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8507402823019552167, guid: dc8a6c0243eba3247b04c1631566262d, type: 3}
+  - {fileID: 2100000, guid: a2c9c5342d749b440b174c4bca10d9c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 5220192813388940611}
   - component: {fileID: 6528453897227631879}
   - component: {fileID: 6210353729947040243}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tree_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3646521077223331696, guid: dc8a6c0243eba3247b04c1631566262d, type: 3}
+  - {fileID: 2100000, guid: 84bc4b6a8da9944478a9d5189e9fafed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -165,7 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 694126043269621879}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 2549458280827926925}
   - component: {fileID: 229242325137573849}
   - component: {fileID: 4218476966013723475}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foliage_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8507402823019552167, guid: dc8a6c0243eba3247b04c1631566262d, type: 3}
+  - {fileID: 2100000, guid: a2c9c5342d749b440b174c4bca10d9c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 6154043347002675115}
   - component: {fileID: 753784002591100280}
   - component: {fileID: 7286645541352575111}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foliage_1_Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8507402823019552167, guid: dc8a6c0243eba3247b04c1631566262d, type: 3}
+  - {fileID: 2100000, guid: a2c9c5342d749b440b174c4bca10d9c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 2286897134258237050}
   - component: {fileID: 3505205769492127127}
   - component: {fileID: 114497043692213594}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foliage_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8507402823019552167, guid: dc8a6c0243eba3247b04c1631566262d, type: 3}
+  - {fileID: 2100000, guid: a2c9c5342d749b440b174c4bca10d9c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

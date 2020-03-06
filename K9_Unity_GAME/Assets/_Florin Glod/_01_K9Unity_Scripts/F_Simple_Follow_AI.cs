@@ -29,6 +29,7 @@ public class F_Simple_Follow_AI : MonoBehaviour
         cooldownPathFind = Random.Range(0.7f, 2f);
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
 
     }//Start
 
@@ -36,8 +37,12 @@ public class F_Simple_Follow_AI : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Vector3.Distance(target.position, gameObject.transform.position));
-        if (b_initiate == false && Vector3.Distance(target.position, gameObject.transform.position) <= distanceEnableAI) b_initiate = true;
+        //Debug.Log(Vector3.Distance(target.position, gameObject.transform.position));
+        if (b_initiate == false && Vector3.Distance(target.position, gameObject.transform.position) <= distanceEnableAI)
+        {
+            b_initiate = true;
+            GameObject.FindObjectOfType<F_Game_Manager>().foxesRequired--;
+        }
 
 
         if (b_initiate && target)
@@ -55,11 +60,16 @@ public class F_Simple_Follow_AI : MonoBehaviour
 
             }
 
-            if (Vector3.Distance(target.position, gameObject.transform.position) < distanceFollow / 3)
+            if (Vector3.Distance(target.position, gameObject.transform.position) <= distanceFollow - 3)
             {
                 agent.SetDestination(gameObject.transform.position);
                 if (anim.speed == 2) anim.speed = 1;
                 anim.SetInteger("Ana", 0);
+                Vector3 lookPos = target.position - transform.position;
+                Quaternion lookRot = Quaternion.LookRotation(lookPos, Vector3.up);
+                float eulerY = lookRot.eulerAngles.y;
+                Quaternion rotation = Quaternion.Euler(0, eulerY, 0);
+                transform.rotation = rotation;
             }
 
         }

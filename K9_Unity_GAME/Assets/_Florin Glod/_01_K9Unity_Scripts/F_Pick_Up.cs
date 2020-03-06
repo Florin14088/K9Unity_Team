@@ -7,6 +7,7 @@ public class F_Pick_Up : MonoBehaviour
     #region Own classes
     [System.Serializable] public class MadeByFlorin
     {
+        public bool b_canBeUsed = true;
         public string interestTag;
         public KeyCode keyCollecting = KeyCode.C;
     }
@@ -43,16 +44,22 @@ public class F_Pick_Up : MonoBehaviour
 
     private void Update()
     {
-        if(b_inRadius && Input.GetKeyDown(florin.keyCollecting))
+        if (florin.b_canBeUsed)
         {
-            TriggerBehaviour();
+            if (b_inRadius && Input.GetKeyDown(florin.keyCollecting))
+            {
+                TriggerBehaviour();
+            }
         }
+        
 
     }//Update
 
 
     private void TriggerBehaviour()
     {
+        GameObject.FindObjectOfType<F_Game_Manager>().foodRequired--;
+        florin.b_canBeUsed = false;
         _script_GM.florin_pickup.collectedAmount++;
         _script_GM.florin_pickup.b_allowPanelShowing = true;
         also_florin.PanelUI_InfoCanPick.SetActive(false);
@@ -63,7 +70,7 @@ public class F_Pick_Up : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.transform.root.tag == florin.interestTag)
+        if(other.gameObject.transform.root.tag == florin.interestTag && florin.b_canBeUsed)
         {
             b_inRadius = true;
             also_florin.PanelUI_InfoCanPick.SetActive(true);

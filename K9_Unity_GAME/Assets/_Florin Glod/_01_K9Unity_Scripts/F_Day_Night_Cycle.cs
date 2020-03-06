@@ -128,6 +128,15 @@ public class F_Day_Night_Cycle : MonoBehaviour
     }//ForceCertainMoment
 
 
+    public void Trigger_Moment_Change()
+    {
+        ForceCertainMoment();
+
+        ChangeDayStage();
+
+    }//Trigger_Moment_Change
+
+
     #region Button management
     public void ChangeDayStage()
     {   //..........midnight.........dusk..........morning.........day............dawn......night......

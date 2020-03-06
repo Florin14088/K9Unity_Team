@@ -13,6 +13,9 @@ public class F_Game_Manager : MonoBehaviour
         public string level_sceneName;
         public string credits_sceneName;
         public string mainMenu_sceneName;
+        [Space]
+        public string transition_toTutorial_sceneName;
+        public string transition_toGame_sceneName;
     }
 
     [System.Serializable] public class byFlorin__Pickup
@@ -39,6 +42,11 @@ public class F_Game_Manager : MonoBehaviour
     public byFlorin__Pickup florin_pickup = new byFlorin__Pickup();
     [Space]
     public byFlorin__UI florin_UI = new byFlorin__UI();
+    [Space]
+    [Space]
+    public int foodRequired = 20;
+    public int foxesRequired = 3;
+    public GameObject portalToCredits;
     #endregion
 
 
@@ -53,6 +61,7 @@ public class F_Game_Manager : MonoBehaviour
     void Start()
     {
         if(florin_UI.collected_txt) florin_UI.collected_txt.text = "0";
+        if (portalToCredits) portalToCredits.SetActive(false);
 
     }//Start
 
@@ -66,6 +75,11 @@ public class F_Game_Manager : MonoBehaviour
 
         ScoreIsChanged();
         GoingToDisablePanel();
+
+        if (foodRequired <= 0 && foxesRequired <= 0)
+        {
+            if(portalToCredits.activeSelf == false) portalToCredits.SetActive(true);
+        }
 
     }//Update
     #endregion
@@ -96,7 +110,7 @@ public class F_Game_Manager : MonoBehaviour
             }
         }
 
-        if(_tempAvailableTimer <= 0 && florin_pickup.ui_panel_pickup_notice.activeSelf)
+        if(_tempAvailableTimer <= 0 && florin_pickup.ui_panel_pickup_notice && florin_pickup.ui_panel_pickup_notice.activeSelf)
         {
             florin_pickup.ui_panel_pickup_notice.SetActive(false);
         }
@@ -120,6 +134,14 @@ public class F_Game_Manager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Time.timeScale = 1;
+    }
+
+
+    public void StartTime_CursorVisible()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 1;
     }
 
@@ -151,6 +173,16 @@ public class F_Game_Manager : MonoBehaviour
     public void ButtonCall_Load_Level()
     {
         SceneManager.LoadScene(florin_scenes.level_sceneName);
+    }
+
+    public void ButtonCall_Load_Transition_Menu_Tutorial()
+    {
+        SceneManager.LoadScene(florin_scenes.transition_toTutorial_sceneName);
+    }
+
+    public void ButtonCall_Load_Transition_Menu_Game()
+    {
+        SceneManager.LoadScene(florin_scenes.transition_toGame_sceneName);
     }
 
 

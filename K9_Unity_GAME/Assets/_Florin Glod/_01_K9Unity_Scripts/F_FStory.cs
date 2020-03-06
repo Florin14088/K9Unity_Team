@@ -21,6 +21,11 @@ public class F_FStory : MonoBehaviour
         public Text whatNext_txt; //here will be player instructed what key to press and what will happen after he presses it
         public KeyCode interaction_key = KeyCode.G; //action key
         public bool b_destroyOnFinish = true;
+        [Space]
+        public GameObject additionalDestroy;
+        [Space]
+        public bool b_start_Disabled = false;
+        public GameObject next_one_to_Show;
     }
     #endregion
 
@@ -36,19 +41,18 @@ public class F_FStory : MonoBehaviour
     string mirror_interactKey;
     private bool b_inProximity = false;
     private int arraySize = 0; // cache of the size of the array to be used instead of calculating the size of the array every frame
-    private F_Game_Manager _script_GM;
     #endregion
 
 
 
     void Start()
     {
-        _script_GM = FindObjectOfType<F_Game_Manager>();
-
         fillUp.panel_Instructions.SetActive(false);
         beCreative.index = 0;
         mirror_interactKey = fillUp.interaction_key.ToString();
         arraySize = beCreative.Instructions.Length;
+
+        if (fillUp.b_start_Disabled) gameObject.SetActive(false);
 
     }//Start
 
@@ -76,6 +80,8 @@ public class F_FStory : MonoBehaviour
 
                 if (fillUp.b_destroyOnFinish)
                 {
+                    if (fillUp.next_one_to_Show) fillUp.next_one_to_Show.SetActive(true);
+                    if (fillUp.additionalDestroy) fillUp.additionalDestroy.SetActive(false);
                     Destroy(gameObject);
                 }
 
@@ -86,7 +92,7 @@ public class F_FStory : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == fillUp.interestTag)
+        if (other.gameObject.transform.root.tag == fillUp.interestTag)
         {
             fillUp.panel_Instructions.SetActive(true);
             fillUp.messageInstructions_txt.text = beCreative.Instructions[beCreative.index];
@@ -97,7 +103,7 @@ public class F_FStory : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == fillUp.interestTag)
+        if (other.gameObject.transform.root.tag == fillUp.interestTag)
         {
             beCreative.index = 0;
             fillUp.messageInstructions_txt.text = " ";

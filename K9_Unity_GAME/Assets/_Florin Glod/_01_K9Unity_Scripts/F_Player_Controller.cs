@@ -45,6 +45,9 @@ public class F_Player_Controller : MonoBehaviour
 
     private Vector3 directionDown; //used for raycast to check if player is airborne or not
 
+    private int multiplier;
+
+
     #endregion
 
 
@@ -78,7 +81,10 @@ public class F_Player_Controller : MonoBehaviour
     #region Own Functions
 
     private void Movement()
-    {       
+    {
+        if (Input.GetKey(runKey)) multiplier = 2;
+        else if (!Input.GetKey(runKey)) multiplier = 1;
+
         if (Input.GetKeyDown(jumpKey) && isJumping == false)// if jump key is pressed and is not airborne
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpPower * Time.deltaTime, rb.velocity.z);
@@ -87,6 +93,7 @@ public class F_Player_Controller : MonoBehaviour
         if (Input.GetKey(jumpKey))
         {
             anim.SetInteger("Ana", 2);
+            anim.speed = 1;
         }
 
         if (Airborne() != isJumping) isJumping = Airborne();// make sure isJumping is equals with what is returned by the Airborne function
@@ -102,12 +109,14 @@ public class F_Player_Controller : MonoBehaviour
             rb.velocity += yVelFixx; //add the temp Vector3 to the rb.velocity to allow rigidbody to control y
 
             anim.SetInteger("Ana", 1);
+            anim.speed = 1 * multiplier;
         }
 
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)
             || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
             anim.SetInteger("Ana", 1);
+            anim.speed = 1;
         }
 
         if (GetDirection() == Vector3.zero && !Input.GetKey(jumpKey) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)
@@ -119,6 +128,7 @@ public class F_Player_Controller : MonoBehaviour
             else rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z);// if airborne, let rigidbody control everything
 
             anim.SetInteger("Ana", 0);
+            anim.speed = 0.5f;
         }
 
     }//Movement

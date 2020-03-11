@@ -13,7 +13,7 @@ public class F_Player_Controller : MonoBehaviour
 
 
     #region Public Variables
-    [Range(0, 200)]
+    [Range(0, 400)]
     public float moveSpeed = 0;
     public float rot = 0f; //body rotation
     public float rotSpeed = 5f;
@@ -21,7 +21,7 @@ public class F_Player_Controller : MonoBehaviour
     [Range(1, 3)] public float runMultiplier = 1;
     public KeyCode runKey = KeyCode.LeftShift;
     [Space]
-    [Range(0, 350)] public float jumpPower = 0;
+    [Range(0, 450)] public float jumpPower = 0;
     public KeyCode jumpKey = KeyCode.Space;
     public float groundDistance = 1.1f; //used by raycast that is starting from player and going down.
 
@@ -69,7 +69,7 @@ public class F_Player_Controller : MonoBehaviour
     }//Start
 
 
-    void Update()
+    void FixedUpdate()
     {
         Movement();
 
@@ -105,7 +105,7 @@ public class F_Player_Controller : MonoBehaviour
             isWalking = true;// input detected, is walking            
 
             Vector3 yVelFixx = new Vector3(0, rb.velocity.y, 0); //temp Vector3 variable with x and z 0 and y controlled by rigidbody
-            rb.velocity = GetDirection() * SpeedDecision() * Time.deltaTime;
+            rb.velocity = GetDirection() * SpeedDecision() * Time.fixedDeltaTime;
             rb.velocity += yVelFixx; //add the temp Vector3 to the rb.velocity to allow rigidbody to control y
 
             anim.SetInteger("Ana", 1);
@@ -138,13 +138,10 @@ public class F_Player_Controller : MonoBehaviour
 
     #region Functions that return something
 
-    private Vector3 GetDirection()// function that simply returns the normalized Vector3 that is made from the sum of horizontal and vertical movements
+    private Vector3 GetDirection()
     {
-        // horizontal_Movement = Input.GetAxisRaw("Horizontal"); //getting the horizontal movement
-        // vertical_Movement = Input.GetAxisRaw("Vertical"); //getting the vertical movement
-        // moveDirection = (horizontal_Movement * transform.right + vertical_Movement * transform.forward).normalized; //assembly the 2 movement variables together in this Vector3 and normalize it
 
-        if (Input.GetKey(KeyCode.W)) //                 moving FORWARD
+        if (Input.GetKey(KeyCode.W)) //moving FORWARD
         {
             moveDirection = new Vector3(0, 0, 1);
             moveDirection = transform.TransformDirection(moveDirection);

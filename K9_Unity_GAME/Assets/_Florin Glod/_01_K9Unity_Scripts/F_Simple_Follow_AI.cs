@@ -29,7 +29,7 @@ public class F_Simple_Follow_AI : MonoBehaviour
         cooldownPathFind = Random.Range(0.7f, 2f);
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
-        //target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
 
     }//Start
 
@@ -41,9 +41,7 @@ public class F_Simple_Follow_AI : MonoBehaviour
         if (b_initiate == false && Vector3.Distance(target.position, gameObject.transform.position) <= distanceEnableAI)
         {
             b_initiate = true;
-            FindObjectOfType<F_Game_Manager>().foxesRequired--;
-            FindObjectOfType<F_Game_Manager>().florin_pickup.FOXCollectedAmount++;
-            FindObjectOfType<F_Game_Manager>().florin_pickup.b_FOX_allowPanelShowing = true;
+            GameObject.FindObjectOfType<F_Game_Manager>().foxesRequired--;
         }
 
 

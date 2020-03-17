@@ -24,10 +24,7 @@ public class F_Player_Controller : MonoBehaviour
     [Range(0, 450)] public float jumpPower = 0;
     public KeyCode jumpKey = KeyCode.Space;
     public float groundDistance = 1.1f; //used by raycast that is starting from player and going down.
-    [Space]
-    public GameObject partner_agentNav;
-    public float refresh = 1.5f;
-    [HideInInspector] public float nextRefresh = 0;
+
     [HideInInspector] public enum PlayerMood { idle, walking, running, jumping};
     public PlayerMood player_mood;
     [Space]
@@ -35,10 +32,6 @@ public class F_Player_Controller : MonoBehaviour
     public bool isJumping; //true if jump key is pressed. this bool is always equal with Airborne() function. Function Airborne() controls this bool by returning true or false
     public bool isWalking; //true if horizontal or vertical axis are not equal with Vector3.zero. Function Movement() controls this bool
     public bool isRunning; //true if run key is pressed while isWalking = true. Function CanRun() controls this bool
-    [Space]
-    public KeyCode changeControlKey = KeyCode.P;
-    public bool b_controlDecision_mouseRotate = false;
-    public GameObject cam;
 
     #endregion
 
@@ -63,37 +56,22 @@ public class F_Player_Controller : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        anim = GetComponentInChildren<Animator>();        
+        anim = GetComponentInChildren<Animator>();
+        
 
     }//Awake
 
 
     void Start()
     {
-        
+
+
     }//Start
-
-
-    private void Update()
-    {
-        if(Time.time > nextRefresh)
-        {
-            nextRefresh = Time.time + refresh;
-            partner_agentNav.transform.position = gameObject.transform.position;
-            partner_agentNav.SetActive(false);
-            partner_agentNav.SetActive(true);
-        }
-        
-    }//Update
 
 
     void FixedUpdate()
     {
-        if (Input.GetKeyUp(changeControlKey)) b_controlDecision_mouseRotate = !b_controlDecision_mouseRotate;
-
-        if (b_controlDecision_mouseRotate == false) Movement();
-
-        if (b_controlDecision_mouseRotate) Movement_MouseRotator();
+        Movement();
 
     }//Update
 
@@ -155,60 +133,6 @@ public class F_Player_Controller : MonoBehaviour
 
     }//Movement
 
-
-    private void Movement_MouseRotator()
-    {
-        if (Input.GetKey(runKey)) multiplier = 2;
-        else if (!Input.GetKey(runKey)) multiplier = 1;
-
-        if (Input.GetKeyDown(jumpKey) && isJumping == false)// if jump key is pressed and is not airborne
-        {
-            rb.velocity = new Vector3(rb.velocity.x, jumpPower * Time.deltaTime, rb.velocity.z);
-        }
-
-        if (Input.GetKey(jumpKey))
-        {
-            anim.SetInteger("Ana", 2);
-            anim.speed = 1;
-        }
-
-        if (Airborne() != isJumping) isJumping = Airborne();// make sure isJumping is equals with what is returned by the Airborne function
-        if (CanRun() != isRunning) isRunning = CanRun();// make sure isRunning is equals with what is returned by the CanRun function
-
-
-        if (GetDirection() != Vector3.zero && !Input.GetKey(jumpKey))// if input is received
-        {
-            isWalking = true;// input detected, is walking            
-
-            Vector3 yVelFixx = new Vector3(0, rb.velocity.y, 0); //temp Vector3 variable with x and z 0 and y controlled by rigidbody
-            rb.velocity = GetDirection() * SpeedDecision() * Time.fixedDeltaTime;
-            rb.velocity += yVelFixx; //add the temp Vector3 to the rb.velocity to allow rigidbody to control y
-
-            anim.SetInteger("Ana", 1);
-            anim.speed = 1 * multiplier;
-        }
-
-
-        if (GetDirection() == Vector3.zero && !Input.GetKey(jumpKey))// if no input is received
-        {
-            isWalking = false;// no input, so it's no longer walking
-
-            if (isJumping == false) rb.velocity = new Vector3(0 * Time.fixedDeltaTime, rb.velocity.y, 0 * Time.fixedDeltaTime); //if not airborne, let rigidbody control Y axis and set X and Z to 0
-            else rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z);// if airborne, let rigidbody control everything
-
-            anim.SetInteger("Ana", 0);
-            anim.speed = 0.5f;
-        }
-
-
-        Vector3 lookPos = cam.transform.position - transform.position;
-        Quaternion lookRot = Quaternion.LookRotation(lookPos, Vector3.up);
-        float eulerY = lookRot.eulerAngles.y;
-        Quaternion rotation = Quaternion.Euler(0, eulerY - 180, 0);
-        transform.rotation = rotation;
-
-    }//Movement_MouseRotator
-
     #endregion
 
 
@@ -231,25 +155,22 @@ public class F_Player_Controller : MonoBehaviour
 
         }//Backward Key press
 
-        if(b_controlDecision_mouseRotate == false)
+        if (Input.GetKey(KeyCode.A))
         {
-            if (Input.GetKey(KeyCode.A))
-            {
-                rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
-                transform.eulerAngles = new Vector3(0, rot, 0);
-                if (rot >= 360) rot = 0;
-                if (rot <= -360) rot = 0;
-            }//Turning Left
+            rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
+            transform.eulerAngles = new Vector3(0, rot, 0);
+            if (rot >= 360) rot = 0;
+            if (rot <= -360) rot = 0;
+        }//Turning Left
 
 
-            if (Input.GetKey(KeyCode.D))
-            {
-                rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
-                transform.eulerAngles = new Vector3(0, rot, 0);
-                if (rot >= 360) rot = 0;
-                if (rot <= -360) rot = 0;
-            }//Turning Right
-        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
+            transform.eulerAngles = new Vector3(0, rot, 0);
+            if (rot >= 360) rot = 0;
+            if (rot <= -360) rot = 0;
+        }//Turning Right
 
         if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
         {

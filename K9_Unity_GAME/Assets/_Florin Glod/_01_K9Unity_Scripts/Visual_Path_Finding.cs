@@ -15,6 +15,7 @@ public class Visual_Path_Finding : MonoBehaviour
     public Transform target3;
     public Transform target4;
     public float distanceSwitch = 9;
+    public bool b_allowedShow = true;
 
     void Start()
     {
@@ -28,25 +29,30 @@ public class Visual_Path_Finding : MonoBehaviour
 
     void Update()
     {
-        TargetManagement();
-
-        if (target == null)
+        if (b_allowedShow)
         {
-            line.startWidth = 0;
-            line.endWidth = 0;
+            TargetManagement();
+
+            if (target == null)
+            {
+                line.startWidth = 0;
+                line.endWidth = 0;
+            }
+
+            if (target != null)
+            {
+                line.startWidth = size;
+                line.endWidth = size;
+
+                line.SetPosition(0, transform.position); //gameObject.transform.position;
+                agent.SetDestination(target.position);
+                //yield return new WaitForEndOfFrame();
+
+                DrawPath(agent.path);
+            }
+
         }
-
-        if (target != null)
-        {
-            line.startWidth = size;
-            line.endWidth = size;
-
-            line.SetPosition(0, transform.position); //gameObject.transform.position;
-            agent.SetDestination(target.position);
-            //yield return new WaitForEndOfFrame();
-
-            DrawPath(agent.path);
-        }
+        
 
     }
 

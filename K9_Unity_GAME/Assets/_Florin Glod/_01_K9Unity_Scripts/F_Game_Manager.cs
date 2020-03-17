@@ -70,6 +70,9 @@ public class F_Game_Manager : MonoBehaviour
     public int foodRequired = 20;
     public int foxesRequired = 3;
     public GameObject portalToCredits;
+    [Space]
+    [Space]
+    public GameObject NavMeshPartner;
     #endregion
 
 
@@ -128,6 +131,18 @@ public class F_Game_Manager : MonoBehaviour
         {
             //Debug.Log("hide");
             if (florin_UI.exit_InfoKeysButton) florin_UI.exit_InfoKeysButton.onClick.Invoke();
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.L) && NavMeshPartner.activeSelf == true)
+        {
+            NavMeshPartner.SetActive(false);
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.L) && NavMeshPartner.activeSelf == false)
+        {
+            NavMeshPartner.SetActive(true);
             return;
         }
 

@@ -21,17 +21,36 @@ public class F_Game_Manager : MonoBehaviour
     [System.Serializable] public class byFlorin__Pickup
     {
         public int collectedAmount = 0;
-        [Space]
         public bool b_allowPanelShowing = false;
         public GameObject ui_panel_pickup_notice;
-        [Range(1, 4)] public float time_alive_panel = 3;        
+        [Range(1, 4)] public float time_alive_panel = 3;  
+        [Space]
+        public int FOXCollectedAmount = 0;
+        public bool b_FOX_allowPanelShowing = false;
+        public GameObject ui_panel_FOX_pickup_notice;
+        [Range(1, 4)] public float time_alive_panel_FOX = 3;
     }
 
     [System.Serializable] public class byFlorin__UI
     {
         public Text collected_txt;
         [Space]
+        public Text FOX_collected_txt;
+        [Space]
         public Button enter_menuButton;
+        [Space]
+        public Button enter_InfoKeysButton;
+        public Button exit_InfoKeysButton;
+        public GameObject Panel_InfoKeys;
+        [Space]
+        public GameObject ToDenPanel;
+    }
+
+    [System.Serializable] public class byFlorin_Creativity
+    {
+        public string[] messages_pickUp_Food;
+        [Space]
+        public string[] messages_find_Fox;
     }
     #endregion
 
@@ -43,6 +62,8 @@ public class F_Game_Manager : MonoBehaviour
     [Space]
     public byFlorin__UI florin_UI = new byFlorin__UI();
     [Space]
+    public byFlorin_Creativity florin_creative = new byFlorin_Creativity();
+    [Space]
     [Space]
     public int foodRequired = 20;
     public int foxesRequired = 3;
@@ -52,8 +73,11 @@ public class F_Game_Manager : MonoBehaviour
 
     #region Private
     private float _tempAvailableTimer = 0;
+    private float _FOXtempAvailableTimer = 0;
     private float cooldown = 1;
+    private float FOXcooldown = 1;
     private float nextCooldown = 0;
+    private float FOXnextCooldown = 0;
     #endregion
 
 
@@ -61,24 +85,48 @@ public class F_Game_Manager : MonoBehaviour
     void Start()
     {
         if(florin_UI.collected_txt) florin_UI.collected_txt.text = "0";
+        if(florin_UI.FOX_collected_txt) florin_UI.FOX_collected_txt.text = "0";
         if (portalToCredits) portalToCredits.SetActive(false);
+
+        if (florin_UI.ToDenPanel)
+            if (florin_UI.ToDenPanel.activeSelf == true) florin_UI.ToDenPanel.SetActive(false);
 
     }//Start
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            if(florin_UI.enter_menuButton) florin_UI.enter_menuButton.onClick.Invoke();
-        }
-
         ScoreIsChanged();
         GoingToDisablePanel();
+        FOX_ScoreIsChanged();
+        FOX_GoingToDisablePanel();
 
         if (foodRequired <= 0 && foxesRequired <= 0)
         {
-            if(portalToCredits.activeSelf == false) portalToCredits.SetActive(true);
+            if (portalToCredits)
+                if (portalToCredits.activeSelf == false) portalToCredits.SetActive(true);
+            if(florin_UI.ToDenPanel)
+                if (florin_UI.ToDenPanel.activeSelf == false) florin_UI.ToDenPanel.SetActive(true);
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (florin_UI.enter_menuButton) florin_UI.enter_menuButton.onClick.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.I) && florin_UI.Panel_InfoKeys.activeSelf == false)
+        {
+            //Debug.Log("Show");
+            if (florin_UI.enter_InfoKeysButton) florin_UI.enter_InfoKeysButton.onClick.Invoke();
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.I) && florin_UI.Panel_InfoKeys.activeSelf == true)
+        {
+            //Debug.Log("hide");
+            if (florin_UI.exit_InfoKeysButton) florin_UI.exit_InfoKeysButton.onClick.Invoke();
+            return;
         }
 
     }//Update
@@ -93,8 +141,9 @@ public class F_Game_Manager : MonoBehaviour
         {
             florin_pickup.b_allowPanelShowing = false;
             florin_UI.collected_txt.text = florin_pickup.collectedAmount.ToString("f0");
-            _tempAvailableTimer += florin_pickup.time_alive_panel;
+            _tempAvailableTimer = florin_pickup.time_alive_panel;
             florin_pickup.ui_panel_pickup_notice.SetActive(true);
+            florin_pickup.ui_panel_pickup_notice.GetComponentInChildren<Text>().text = florin_creative.messages_pickUp_Food[Random.Range(0, florin_creative.messages_pickUp_Food.Length)];
         }
 
     }//ScoreIsChanged
@@ -117,11 +166,43 @@ public class F_Game_Manager : MonoBehaviour
 
     }//GoingToDisablePanel
 
+
+    private void FOX_ScoreIsChanged()
+    {
+        if (florin_pickup.b_FOX_allowPanelShowing)
+        {
+            florin_pickup.b_FOX_allowPanelShowing = false;
+            florin_UI.FOX_collected_txt.text = florin_pickup.FOXCollectedAmount.ToString("f0");
+            _FOXtempAvailableTimer = florin_pickup.time_alive_panel_FOX;
+            florin_pickup.ui_panel_FOX_pickup_notice.SetActive(true);
+            florin_pickup.ui_panel_FOX_pickup_notice.GetComponentInChildren<Text>().text = florin_creative.messages_find_Fox[Random.Range(0, florin_creative.messages_find_Fox.Length)];
+        }
+
+    }//FOX_ScoreIsChanged
+
+    private void FOX_GoingToDisablePanel()
+    {
+        if (_FOXtempAvailableTimer > 0)
+        {
+            if (Time.time > FOXnextCooldown)
+            {
+                FOXnextCooldown = Time.time + FOXcooldown;
+                _FOXtempAvailableTimer--;
+            }
+        }
+
+        if (_FOXtempAvailableTimer <= 0 && florin_pickup.ui_panel_FOX_pickup_notice && florin_pickup.ui_panel_FOX_pickup_notice.activeSelf)
+        {
+            florin_pickup.ui_panel_FOX_pickup_notice.SetActive(false);
+        }
+
+    }//GoingToDisablePanel
+
     #endregion
 
 
     #region Button
-    
+
     public void StopTime()
     {
         Cursor.lockState = CursorLockMode.None;

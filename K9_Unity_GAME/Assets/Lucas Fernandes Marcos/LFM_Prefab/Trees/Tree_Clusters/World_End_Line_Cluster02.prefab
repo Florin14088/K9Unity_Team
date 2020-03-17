@@ -46,6 +46,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Whole_Bushes04
       objectReference: {fileID: 0}
+    - target: {fileID: 7879489624221376731, guid: 82dd76dc8be580348a1f723ebc8ebf8a,
+        type: 3}
+      propertyPath: m_TagString
+      value: oldThings
+      objectReference: {fileID: 0}
     - target: {fileID: 6558028068072559304, guid: 82dd76dc8be580348a1f723ebc8ebf8a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -120,6 +125,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_Whole_Bushes01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5729600813255758023, guid: 0d6b43ec9249da84083d46885d6fc647,
+        type: 3}
+      propertyPath: m_TagString
+      value: oldThings
       objectReference: {fileID: 0}
     - target: {fileID: 8780040486735897300, guid: 0d6b43ec9249da84083d46885d6fc647,
         type: 3}
@@ -196,6 +206,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Whole03
       objectReference: {fileID: 0}
+    - target: {fileID: 2355946974635882097, guid: d23e2a35467891f4686706393a795c05,
+        type: 3}
+      propertyPath: m_TagString
+      value: oldThings
+      objectReference: {fileID: 0}
     - target: {fileID: 1650948124296152162, guid: d23e2a35467891f4686706393a795c05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -270,6 +285,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_Whole_Bushes02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655700350196007957, guid: 69a8608cad8855d429add2d55f8b03fb,
+        type: 3}
+      propertyPath: m_TagString
+      value: oldThings
       objectReference: {fileID: 0}
     - target: {fileID: 1333532494595012102, guid: 69a8608cad8855d429add2d55f8b03fb,
         type: 3}

@@ -23,6 +23,8 @@ public class F_Pick_Up : MonoBehaviour
     #region Public
     public MadeByFlorin florin = new MadeByFlorin();
     public AlsoMadeByFlorin also_florin = new AlsoMadeByFlorin();
+    [Space]
+    public F_Audio_Manager _script_AudioManager;
     #endregion
 
     #region Private    
@@ -32,12 +34,19 @@ public class F_Pick_Up : MonoBehaviour
 
 
 
+    private void Awake()
+    {
+        _script_AudioManager = FindObjectOfType<F_Audio_Manager>();
+    }
+
+
     void Start()
     {
         also_florin.PanelUI_InfoCanPick.SetActive(false);
         _script_GM = FindObjectOfType<F_Game_Manager>();
 
         also_florin.player_itself = GameObject.FindGameObjectWithTag(florin.interestTag);
+
         
     }//Start
 
@@ -60,6 +69,7 @@ public class F_Pick_Up : MonoBehaviour
     {
         GameObject.FindObjectOfType<F_Game_Manager>().foodRequired--;
         florin.b_canBeUsed = false;
+        _script_AudioManager.CollectedBerry();
         _script_GM.florin_pickup.collectedAmount++;
         _script_GM.florin_pickup.b_allowPanelShowing = true;
         also_florin.PanelUI_InfoCanPick.SetActive(false);

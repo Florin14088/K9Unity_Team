@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8780040486735897300}
   m_Layer: 10
   m_Name: Tree_Whole_Bushes01
-  m_TagString: Untagged
+  m_TagString: oldThings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5729600813255758023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.950851, y: 0, z: -33.33}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 1522875457818823392}

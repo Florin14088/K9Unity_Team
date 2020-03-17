@@ -47,6 +47,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Whole02
       objectReference: {fileID: 0}
+    - target: {fileID: 1391927521285950273, guid: 7eff599124686f24f83687d3a78af296,
+        type: 3}
+      propertyPath: m_TagString
+      value: oldThings
+      objectReference: {fileID: 0}
     - target: {fileID: 2669024259908581714, guid: 7eff599124686f24f83687d3a78af296,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -121,6 +126,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_Whole01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2687308384523463186, guid: 9bd0aee1c344f2d4192997026f866ab1,
+        type: 3}
+      propertyPath: m_TagString
+      value: oldThings
       objectReference: {fileID: 0}
     - target: {fileID: 1373709367373060097, guid: 9bd0aee1c344f2d4192997026f866ab1,
         type: 3}
@@ -197,6 +207,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Whole05
       objectReference: {fileID: 0}
+    - target: {fileID: 6322439724828840320, guid: 3e9391946d3cc7c40996d209457c51ed,
+        type: 3}
+      propertyPath: m_TagString
+      value: oldThings
+      objectReference: {fileID: 0}
     - target: {fileID: 7054476183595590547, guid: 3e9391946d3cc7c40996d209457c51ed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -272,6 +287,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_Whole_Bushes03
       objectReference: {fileID: 0}
+    - target: {fileID: 5843819106462616212, guid: 1fa7a4d8181671b41a2c666958d0e367,
+        type: 3}
+      propertyPath: m_TagString
+      value: oldThings
+      objectReference: {fileID: 0}
     - target: {fileID: 7440566000771053703, guid: 1fa7a4d8181671b41a2c666958d0e367,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -346,6 +366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_Whole_Bushes04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879489624221376731, guid: 82dd76dc8be580348a1f723ebc8ebf8a,
+        type: 3}
+      propertyPath: m_TagString
+      value: oldThings
       objectReference: {fileID: 0}
     - target: {fileID: 6558028068072559304, guid: 82dd76dc8be580348a1f723ebc8ebf8a,
         type: 3}

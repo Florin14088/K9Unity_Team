@@ -11,11 +11,13 @@ public class F_Game_Manager : MonoBehaviour
     {
         public string tutorial_sceneName;
         public string level_sceneName;
+        public string level_sceneName_Winter;
         public string credits_sceneName;
         public string mainMenu_sceneName;
         [Space]
         public string transition_toTutorial_sceneName;
         public string transition_toGame_sceneName;
+        public string transition_toWINTERGame_sceneName;
     }
 
     [System.Serializable] public class byFlorin__Pickup
@@ -256,6 +258,11 @@ public class F_Game_Manager : MonoBehaviour
         SceneManager.LoadScene(florin_scenes.level_sceneName);
     }
 
+    public void ButtonCall_Load_Level_Winter()
+    {
+        SceneManager.LoadScene(florin_scenes.level_sceneName_Winter);
+    }
+
     public void ButtonCall_Load_Transition_Menu_Tutorial()
     {
         SceneManager.LoadScene(florin_scenes.transition_toTutorial_sceneName);
@@ -264,6 +271,11 @@ public class F_Game_Manager : MonoBehaviour
     public void ButtonCall_Load_Transition_Menu_Game()
     {
         SceneManager.LoadScene(florin_scenes.transition_toGame_sceneName);
+    }
+
+    public void ButtonCall_Load_Transition_Menu_WINTERGame()
+    {
+        SceneManager.LoadScene(florin_scenes.transition_toWINTERGame_sceneName);
     }
 
 

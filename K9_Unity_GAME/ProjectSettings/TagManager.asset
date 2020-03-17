@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - oldThings
+  - FishWaypoint
+  - animal_fish
+  - newThings
+  - Bird_Way
   layers:
   - Default
   - TransparentFX
@@ -17,7 +22,7 @@ TagManager:
   - Layer_A Ignore B
   - Layer_B Ignore A
   - Editor Only
-  - 
+  - grass
   - 
   - 
   - 

@@ -83,14 +83,25 @@ public class F_Player_Controller : MonoBehaviour
             partner_agentNav.SetActive(false);
             partner_agentNav.SetActive(true);
         }
-        
+
+
+        if (Input.GetKeyDown(changeControlKey) && b_controlDecision_mouseRotate == false)
+        {
+            b_controlDecision_mouseRotate = true;
+            return;
+        }
+
+        if (Input.GetKeyDown(changeControlKey) && b_controlDecision_mouseRotate == true)
+        {
+            b_controlDecision_mouseRotate = false;
+            return;
+        }
+
     }//Update
 
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(changeControlKey)) b_controlDecision_mouseRotate = !b_controlDecision_mouseRotate;
-
         if (b_controlDecision_mouseRotate == false) Movement();
 
         if (b_controlDecision_mouseRotate) Movement_MouseRotator();
